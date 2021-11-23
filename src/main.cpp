@@ -6,21 +6,6 @@
 
 using namespace std;
 
-
-void
-calculatePriorityLists(list<Store *> stores, list<Client *> clients) {
-    list <Store *> ::iterator storesIt = stores.begin();
-    // list <Client *> ::iterator clientsIt;
-    Store * store;
-
-    while(storesIt != stores.end()) {
-        (*storesIt)->calculateClientPriorityList(clients);
-        storesIt++;
-    }
-}
-
-
-
 bool
 allClientsScheduled(list<Client *> clients) {
     list<Client *> ::iterator it = clients.begin();
@@ -53,7 +38,6 @@ scheduleClient(
     client->free = false;
 }
 
-
 void
 changeClient(
     Client * client,
@@ -64,7 +48,6 @@ changeClient(
 
     scheduleClient(client, store);
 }
-
 
 list<Store *>
 availableStores(list<Store *> stores) {
@@ -134,7 +117,6 @@ stableMatching(
             }
         }
     }
-
 }
 
 int
@@ -191,7 +173,11 @@ main() {
         id ++;
     }
 
-    calculatePriorityLists(stores, clients);
+    storesIt = stores.begin();
+    while(storesIt != stores.end()) {
+        (*storesIt)->calculateClientPriorityList(clients);
+        storesIt++;
+    }
 
     stableMatching(stores, clients);
 
