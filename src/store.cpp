@@ -3,7 +3,6 @@
 #include <iostream>
 #include <cmath>
 #include <list>
-#include <algorithm> 
 
 Store::Store(int id, int capacity, int x, int y) {
     this->id = id;

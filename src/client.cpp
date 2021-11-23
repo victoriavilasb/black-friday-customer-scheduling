@@ -3,12 +3,8 @@
 #include <iostream>
 #include <cmath>
 #include <string>
-#include <list>
-#include <algorithm> 
 
-using namespace std;
-
-Client::Client(int id, int age, string state, string paymentMethod, int x, int y) {
+Client::Client(int id, int age, std::string state, std::string paymentMethod, int x, int y) {
     this->id = id;
     this->age = age;
     this->state = state;
